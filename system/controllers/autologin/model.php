@@ -49,4 +49,12 @@ class modelAutologin extends cmsModel
         {
             return $this->delete('autologin_userlist', $id);
         }
+        
+        public function is_user_add($uid)
+        {
+            $this->filterEqual('uid', $uid);
+            $user = $this->get('autologin_userlist');
+            $this->resetFilters();
+            return $user;
+        }
 }

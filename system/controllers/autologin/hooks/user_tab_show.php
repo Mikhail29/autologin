@@ -7,6 +7,9 @@ class onAutologinUserTabShow extends cmsAction {
         $template = cmsTemplate::getInstance();
         $list_html = '';
         $user_model = cmsCore::getModel('users');
+        if ($user->id == $profile['id']){
+            cmsUser::sessionSet('last_viewed_user_id', $profile['id']);
+        }
         if($user_list = $this->model->get_users_in_list($profile['id'])):
             foreach ($user_list as $single_user) {
                 $single_user_info = $user_model->getUser($single_user['uid']);
