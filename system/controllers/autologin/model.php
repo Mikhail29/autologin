@@ -31,4 +31,22 @@ class modelAutologin extends cmsModel
                 ));
             }
         }
+        
+        public function get_users_in_list($user_id)
+        {
+            $this->filterEqual('owner_id', $user_id);
+            $users = $this->get('autologin_userlist');
+            $this->resetFilters();
+            return $users;
+        }
+        
+        public function add_user_in_list($user)
+        {
+            return $this->insert('autologin_userlist', $user);
+        }
+        
+        public function delete_user_in_list($id)
+        {
+            return $this->delete('autologin_userlist', $id);
+        }
 }
