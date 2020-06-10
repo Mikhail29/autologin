@@ -1,4 +1,4 @@
-INSERT INTO `{#}controllers` (`title`, `name`, `is_enabled`, `options`, `author`, `url`, `version`, `is_backend`, `is_external`) VALUES ('Автологин', 'autologin', '1', NULL, 'Михайлов Михаил', 'https://vk.com/evilmixa', '2.0.0', '1', NULL);
+INSERT INTO `{#}controllers` (`title`, `name`, `is_enabled`, `options`, `author`, `url`, `version`, `is_backend`, `is_external`) VALUES ('Автологин', 'autologin', '1', NULL, 'Михайлов Михаил', 'https://vk.com/evilmixa', '2.1.0', '1', NULL);
 
 INSERT INTO `{#}perms_rules` (`controller`, `name`, `type`, `options`) VALUES ('autologin', 'use', 'flag', NULL);
 
