@@ -12,23 +12,37 @@ class modelAutologin extends cmsModel
 		}
 		return false;
 	}
-        
-        public function set_online($sesid, $user_id)
+
+        public function set_online($user_id)
         {
-            if($this->getItemByField('sessions_online', 'session_id', $sesid))
-            {
-                $this->filterEqual('session_id', $sesid);
-                $result = $this->updateFiltered('sessions_online', array(
-                    'user_id'   => $user_id
-                ));
-                $this->resetFilters();
-            }
-            else 
-            {
-                return $this->insert('sessions_online', array(
-                    'session_id'    => $sesid,
-                    'user_id'       => $user_id
-                ));
-            }
+            return $this->insert('sessions_online', array(
+                'user_id'       => $user_id
+            ));
+        }
+        
+        public function get_users_in_list($user_id)
+        {
+            $this->filterEqual('owner_id', $user_id);
+            $users = $this->get('autologin_userlist');
+            $this->resetFilters();
+            return $users;
+        }
+        
+        public function add_user_in_list($user)
+        {
+            return $this->insert('autologin_userlist', $user);
+        }
+        
+        public function delete_user_in_list($id)
+        {
+            return $this->delete('autologin_userlist', $id);
+        }
+        
+        public function is_user_add($uid)
+        {
+            $this->filterEqual('uid', $uid);
+            $user = $this->get('autologin_userlist');
+            $this->resetFilters();
+            return $user;
         }
 }

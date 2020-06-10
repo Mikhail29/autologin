@@ -19,7 +19,7 @@ class autologin extends cmsFrontend
                 'is_admin' => $user['is_admin']
             ));
             cmsEventsManager::hook('auth_login', $user['id']);
-            $this->model->set_online($_COOKIE['PHPSESSID'], $user_id);
+            $this->model->set_online($user_id);
 
         }
         else 
