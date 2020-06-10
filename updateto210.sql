@@ -1,0 +1,1 @@
+UPDATE `{#}controllers` SET `version`='2.1.0' WHERE (`name`='autologin') LIMIT 1;

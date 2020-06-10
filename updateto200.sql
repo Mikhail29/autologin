@@ -1,4 +1,4 @@
-UPDATE `{#}controllers` SET `version`='2.1.0' WHERE (`name`='autologin') LIMIT 1;
+UPDATE `{#}controllers` SET `version`='2.0.0' WHERE (`name`='autologin') LIMIT 1;
 
 DROP TABLE IF EXISTS `{#}autologin_userlist`;
 

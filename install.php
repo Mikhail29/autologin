@@ -13,6 +13,10 @@ function install_package()
 	 if($is_controller_setup)
 	 {
          if($is_controller_setup["version"] != "2.0.0") {
+             return $db->importDump($path . '/updateto210.sql');
+         }
+         else
+         {
              return $db->importDump($path . '/updateto200.sql');
          }
 	 }
